@@ -489,8 +489,9 @@ async function searchAddress() {
 
     map.flyTo({ center: lngLat, zoom: 13, duration: 800 });
 
-    // ポイントのフィーチャを取得（flyTo完了後）
+    // ポイントのフィーチャを取得（flyTo完了 → タイル描画完了後）
     map.once("moveend", () => {
+      map.once("idle", () => {
       const pt = map.project(lngLat);
       const features = map.queryRenderedFeatures(pt, { layers: ["transit-fill"] });
       if (features.length) {
@@ -508,6 +509,7 @@ async function searchAddress() {
       } else {
         showResult(null, `<b>${display_name.split(",")[0]}</b> 周辺にデータがありません（海上・国外の可能性）`);
       }
+      }); // idle
     });
   } catch (e) {
     showResult(null, "検索エラーが発生しました");

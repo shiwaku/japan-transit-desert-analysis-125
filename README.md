@@ -31,7 +31,7 @@
 - ホバー/タップで最寄り駅・バス停までの徒歩時間と人口を表示
 - スマホ対応（ボトムシート型検索パネル）
 
-PMTiles: `https://shiworks2.xsrv.jp/pmtiles/mlit-ksj/transit_desert_125m.pmtiles`
+PMTiles: `https://shi-works.com/pmtiles/mlit-ksj/transit_desert_125m.pmtiles`
 
 ## 国交省公表数値との比較
 
